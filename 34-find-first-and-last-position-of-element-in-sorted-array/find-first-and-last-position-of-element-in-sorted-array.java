@@ -1,15 +1,15 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
-        int[] ans = {-1,-1};
-        int start = searchIndex(nums,target,true);
-        int end = searchIndex(nums,target,false);
+        int[] ans = { -1, -1 };
+        ans[0] = searchIndex(nums, target, true);
+        if (ans[0] != -1) {
+            ans[1] = searchIndex(nums, target, false);
+        }
 
-        ans[0]= start;
-        ans[1] = end;
         return ans;
     }
 
-    private int searchIndex(int[] nums, int target, boolean findStartIndex){
+    private int searchIndex(int[] nums, int target, boolean findStartIndex) {
         int ans = -1;
         int start = 0;
         int end = nums.length - 1;
@@ -22,15 +22,15 @@ class Solution {
             int mid = start + (end - start) / 2;
             if (target == nums[mid]) {
                 ans = mid;
-                if(findStartIndex){
-                    end = mid -1;
-                }else{
+                if (findStartIndex) {
+                    end = mid - 1;
+                } else {
                     start = mid + 1;
                 }
-                
-            }else if (target < nums[mid]) {
+
+            } else if (target < nums[mid]) {
                 end = mid - 1;
-            }else {
+            } else {
                 start = mid + 1;
             }
         }
