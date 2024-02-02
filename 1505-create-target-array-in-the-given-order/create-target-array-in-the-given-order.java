@@ -7,6 +7,10 @@ class Solution {
             list.add(index[i], nums[i]);
         }
 
-        return list.stream().mapToInt(i -> i).toArray();
+        for(int i=0; i<list.size() ;i++){
+            target[i] = list.get(i);
+        }
+
+        return target;
     }
 }
