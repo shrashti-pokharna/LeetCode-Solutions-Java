@@ -10,15 +10,3 @@ var map = function(arr, fn) {
     }
     return number;
 };
-
-const plusOne = (n) => {
-    return n+1;
-}
-
-const plusI = (n, i) => {
-    return n+i;
-}
-
-const constant = () => {
-    return 42;
-}
